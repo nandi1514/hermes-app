@@ -19,7 +19,7 @@ dotenv.config();
 // middlewares
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://hermes-app-client.vercel.app/",
     credentials: true,
   })
 );
