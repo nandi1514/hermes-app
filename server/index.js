@@ -20,7 +20,7 @@ dotenv.config();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: `${process.env.CLIENT_URL}`,
   })
 );
 app.use(express.json());
@@ -31,6 +31,9 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 connectDB();
 
 // Routes
+app.use('/', (req, res) => {
+  return res.status(200).json('Hermes App Server Working.')
+})
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
