@@ -19,8 +19,8 @@ dotenv.config();
 // middlewares
 app.use(
   cors({
-    credentials: true,
     origin: `${process.env.CLIENT_URL}`,
+    credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
@@ -32,9 +32,9 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 connectDB();
 
 // Routes
-app.use("/", (req, res) => {
-  return res.status(200).json("Hermes App Server Working.");
-});
+// app.use("/", (req, res) => {
+//   return res.status(200).json("Hermes App Server Working.");
+// });
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
