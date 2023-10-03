@@ -19,7 +19,7 @@ dotenv.config();
 // middlewares
 app.use(
   cors({
-    origin: `${process.env.CLIENT_URL}`,
+    origin: process.env.CLIENT_URL,
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
